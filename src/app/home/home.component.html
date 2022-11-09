@@ -1,11 +1,11 @@
 <app-toolbar></app-toolbar>
-<p>Top stories</p>
+<h1>Top stories</h1>
 
 <div class="stories">
     <!-- TODO: change to reusable component -->
     <div class="story" *ngFor="let story of stories" (click)="openLink(story.url)">
         <p>{{ story.title }}</p>
-        <sub>{{ story.score }} points by {{ story.by }}</sub>
+        <sub>{{ story.score }} points by {{ story.by }} on {{ story.time | date:'medium' }}</sub>
     </div>
     <div class="spinner-wrapper" [ngStyle]="{'visibility': isLoading ? 'visible' : 'hidden'}">
         <mat-spinner [diameter]="30"></mat-spinner>
