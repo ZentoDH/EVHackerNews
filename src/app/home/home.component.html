@@ -3,7 +3,8 @@
 
 <div class="stories">
     <!-- TODO: change to reusable component -->
-    <div class="story" *ngFor="let story of stories" (click)="openLink(story.url)">
+    <div class="story" *ngFor="let story of stories;let i = index" (click)="openLink(story.url)">
+        <span class="count">{{ i + 1 }}</span>
         <p>{{ story.title }}</p>
         <sub>{{ story.score }} points by {{ story.by }} on {{ story.time | date:'medium' }}</sub>
     </div>
