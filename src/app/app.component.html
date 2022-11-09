@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+
+<mat-drawer-container autosize>
+    <mat-drawer #drawer [mode]="'over'">
+      <p>Auto-resizing sidenav</p>
+      <button mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+
+    <div class="sidenav-bar">
+        <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+    </div>
+
+    <router-outlet></router-outlet>
+
+  </mat-drawer-container>

@@ -1,0 +1,23 @@
+.stories {
+    width: 100%;
+    margin: auto;
+
+    .story {
+        margin: 5px 10px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        cursor: pointer;
+    }
+    .spinner-wrapper {
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 600px) {
+    .stories {
+        max-width: 800px;
+    }
+}
