@@ -10,7 +10,7 @@ import { Story } from '../_models/story.model';
 })
 export class HomeComponent implements OnInit {
   private count: number = 5
-  private offset: number = 494;
+  private offset: number = 0;
   stories: Story[] = [];
 
   constructor(private hackerNewsApiService: HackerNewsApiService) { }
