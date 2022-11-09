@@ -1,1 +1,7 @@
+<app-toolbar></app-toolbar>
 <p>home works!</p>
+<button (click)="loadMore()">load more</button>
+
+<ul>
+    <li *ngFor="let story of stories">{{story.title}}</li>
+</ul>

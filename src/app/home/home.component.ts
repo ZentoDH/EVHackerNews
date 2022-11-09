@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { HackerNewsApiService } from '../services/hacker-news-api.service';
+import { Story } from '../_models/story.model';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,23 @@ import { HackerNewsApiService } from '../services/hacker-news-api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  private count: number = 5
+  private offset: number = 494;
+  stories: Story[] = [];
 
   constructor(private hackerNewsApiService: HackerNewsApiService) { }
 
   ngOnInit(): void {
-    this.hackerNewsApiService.latestStories().pipe(
+    this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
       take(1)
-    ).subscribe(res => console.log(res))
+    ).subscribe(stories => this.stories = stories);
+  }
+
+  loadMore(): void {
+    this.offset = this.offset + this.count;
+    this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
+      take(1)
+    ).subscribe(stories =>  this.stories = [...this.stories, ...stories]);
   }
 
 }
