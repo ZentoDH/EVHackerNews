@@ -1,8 +1,16 @@
+$primary: #15103a;
+$accent: #5541f0;
+
+* {
+ font-family: "Raleway", "Helvetica Neue", sans-serif; 
+}
+
 .title {
   text-align: center;
   margin: 50px;
   font-weight: lighter;
   font-size: 4em;
+  color: $primary;
 }
 .stories-wrapper {
   min-height: fit-content;
@@ -10,6 +18,7 @@
 
   h1 {
     text-align: center;
+    color: $accent;
   }
   .section-wrapper {
     box-shadow: rgb(186, 186, 186) 0px 1px 4px;
