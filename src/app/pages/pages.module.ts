@@ -5,6 +5,8 @@ import { PagesComponent } from './pages.component';
 import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     PagesRoutingModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   exports: [ToolbarComponent]
 })
