@@ -10,9 +10,30 @@ import { Story } from '../_models/story.model';
 export class HackerNewsApiService {
   private apiC = apiConstant;
   private idCache: number[] = [];
+  private latestCache: string = '';
 
   constructor(private http: HttpClient) { }
 
+  getStories(count: number, offset: number, type: string): Observable<Story[]> {
+    if (!this.idCache.length || this.latestCache !== type) {
+      return this.http.get<number[]>(`${this.apiC.root}/${type}stories.json`).pipe(
+        switchMap((ids) => {
+          console.log('got new ids', ids)
+          this.idCache = ids;
+          return this.getStoriesDetails(ids, count, offset);
+        })
+      )
+    } else {
+      if ((count + offset) > (this.idCache.length)) {
+        // TODO: notify user
+        alert('found the end')
+      }
+      return this.getStoriesDetails(this.idCache, count, offset);
+    }
+  };
+
+
+  // Depricated
   getLatestStories(count: number, offset: number): Observable<Story[]> {
     if (!this.idCache.length) {
       return this.http.get<number[]>(`${this.apiC.root}/topstories.json`).pipe(

@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, finalize, switchMap, take, tap } from 'rxjs';
 import { HackerNewsApiService } from '../services/hacker-news-api.service';
 import { Story } from '../_models/story.model';
 
@@ -25,12 +25,18 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO: no type any
-    this.route.data.pipe(take(1)).subscribe((data: any) => this.pageType = data.type);
-
-    this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
+    this.route.data.pipe(
+      distinctUntilChanged(),
+      debounceTime(300),
+      switchMap((data: any) => this.hackerNewsApiService.getStories(this.count, this.offset, data.type)),
+      finalize(() => this.isLoading = false),
       take(1),
-      tap(() => this.isLoading = false)
     ).subscribe(stories => this.stories = stories);
+
+    // this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
+    //   take(1),
+    //   tap(() => this.isLoading = false)
+    // ).subscribe(stories => this.stories = stories);
   }
 
   loadMore(): void {
