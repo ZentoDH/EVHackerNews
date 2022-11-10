@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-  }
+  },
+  {
+    path: 'page',
+    loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)
+  },
+  {path: '**', redirectTo: '', pathMatch: 'full'},
 ];
 
 @NgModule({

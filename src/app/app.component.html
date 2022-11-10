@@ -3,9 +3,9 @@
     <h1>Hacker news</h1>
     <mat-divider></mat-divider>
     <button mat-flat-button routerLink="/">Home</button>
-    <button mat-flat-button routerLink="/top">Top</button>
-    <button mat-flat-button routerLink="/new">New</button>
-    <button mat-flat-button routerLink="/best">Best</button>
+    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">Top</button>
+    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">New</button>
+    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">Best</button>
   </mat-drawer>
 
   <div class="sidenav-bar">

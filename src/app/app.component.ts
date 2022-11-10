@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { routingConstant } from './_constants/routing.constants';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hackerNews';
+
+  readonly routing = routingConstant.pages;
 }
