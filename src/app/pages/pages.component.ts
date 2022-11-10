@@ -24,27 +24,24 @@ export class PagesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // TODO: no type any
     this.route.data.pipe(
       distinctUntilChanged(),
       debounceTime(300),
-      switchMap((data: any) => this.hackerNewsApiService.getStories(this.count, this.offset, data.type)),
+      switchMap((data: any) => {
+        this.pageType = data.type
+        return this.hackerNewsApiService.getStories(this.count, this.offset, data.type)
+      }),
       finalize(() => this.isLoading = false),
       take(1),
     ).subscribe(stories => this.stories = stories);
-
-    // this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
-    //   take(1),
-    //   tap(() => this.isLoading = false)
-    // ).subscribe(stories => this.stories = stories);
   }
 
   loadMore(): void {
     this.isLoading = true;
     this.offset = this.offset + this.count;
-    this.hackerNewsApiService.getLatestStories(this.count, this.offset).pipe(
+    this.hackerNewsApiService.getStories(this.count, this.offset, this.pageType).pipe(
       take(1),
-      tap(() => this.isLoading = false)
+      finalize(() => this.isLoading = false)
     ).subscribe(stories =>  this.stories = [...this.stories, ...stories]);
   }
 

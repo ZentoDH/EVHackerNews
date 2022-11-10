@@ -2,53 +2,40 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, mergeMap, Observable, switchMap, tap, toArray } from 'rxjs';
 import { apiConstant } from '../_constants/api.constants';
+import { State } from '../_enums/state.enum';
 import { Story } from '../_models/story.model';
-
 @Injectable({
   providedIn: 'root'
 })
 export class HackerNewsApiService {
   private apiC = apiConstant;
-  private idCache: number[] = [];
-  private latestCache: string = '';
+  private idCache: {
+    top: number[];
+    new: number[];
+    best: number[];
+  } = {
+    top: [],
+    new: [],
+    best: [],
+  }
 
   constructor(private http: HttpClient) { }
 
-  getStories(count: number, offset: number, type: string): Observable<Story[]> {
-    if (!this.idCache.length || this.latestCache !== type) {
+  getStories(count: number, offset: number, type: State): Observable<Story[]> {
+    if (!this.idCache[type].length) {
       return this.http.get<number[]>(`${this.apiC.root}/${type}stories.json`).pipe(
         switchMap((ids) => {
           console.log('got new ids', ids)
-          this.idCache = ids;
+          this.idCache[type] = ids;
           return this.getStoriesDetails(ids, count, offset);
         })
       )
     } else {
-      if ((count + offset) > (this.idCache.length)) {
+      if ((count + offset) > (this.idCache[type].length)) {
         // TODO: notify user
-        alert('found the end')
+        alert('End of the stories')
       }
-      return this.getStoriesDetails(this.idCache, count, offset);
-    }
-  };
-
-
-  // Depricated
-  getLatestStories(count: number, offset: number): Observable<Story[]> {
-    if (!this.idCache.length) {
-      return this.http.get<number[]>(`${this.apiC.root}/topstories.json`).pipe(
-        switchMap((ids) => {
-          console.log('got new ids', ids)
-          this.idCache = ids;
-          return this.getStoriesDetails(ids, count, offset);
-        })
-      )
-    } else {
-      if ((count + offset) > (this.idCache.length)) {
-        // TODO: notify user
-        alert('found the end')
-      }
-      return this.getStoriesDetails(this.idCache, count, offset);
+      return this.getStoriesDetails(this.idCache[type], count, offset);
     }
   };
 

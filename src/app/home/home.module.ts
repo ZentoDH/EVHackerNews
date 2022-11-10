@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { PagesModule } from '../pages/pages.module';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { PagesModule } from '../pages/pages.module';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatIconModule,
+    MatDividerModule,
     PagesModule,
   ],
   declarations: [HomeComponent],
