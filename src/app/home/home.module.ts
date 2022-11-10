@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeRoutingModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   declarations: [HomeComponent, ToolbarComponent],
   exports: []

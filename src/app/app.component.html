@@ -1,16 +1,19 @@
-
 <mat-drawer-container autosize>
-    <mat-drawer #drawer [mode]="'over'">
-      <p>Auto-resizing sidenav</p>
-      <button mat-raised-button>
-        Toggle extra text
-      </button>
-    </mat-drawer>
+  <mat-drawer #drawer [mode]="'over'">
+    <h1>Hacker news</h1>
+    <mat-divider></mat-divider>
+    <button mat-flat-button routerLink="/">Home</button>
+    <button mat-flat-button routerLink="/top">Top</button>
+    <button mat-flat-button routerLink="/new">New</button>
+    <button mat-flat-button routerLink="/best">Best</button>
+  </mat-drawer>
 
-    <div class="sidenav-bar">
-        <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
-    </div>
+  <div class="sidenav-bar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
 
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-  </mat-drawer-container>
+</mat-drawer-container>

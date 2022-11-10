@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

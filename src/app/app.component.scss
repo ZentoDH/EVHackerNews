@@ -1,3 +1,18 @@
+mat-drawer-container {
+    mat-drawer {
+        button {
+            width: 100%;
+            border-radius: 0px;
+            text-align: right;
+            padding-right: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}
+
 @media (min-width: 600px) {
     .sidenav-bar {
         display: none;
