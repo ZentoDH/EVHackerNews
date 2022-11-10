@@ -19,7 +19,7 @@ const routes: Routes = [
     component: PagesComponent,
     data: { type: routingConstant.pages.best}
   },
-  {path: '**', redirectTo: routingConstant.pages.top, pathMatch: 'full'},
+  {path: '*', redirectTo: routingConstant.pages.top, pathMatch: 'full'},
 ];
 
 @NgModule({

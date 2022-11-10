@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { routingConstant } from '../_constants/routing.constants';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
@@ -8,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'page',
+    path: routingConstant.pages.root,
     loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule)
   },
   {path: '**', redirectTo: '', pathMatch: 'full'},
