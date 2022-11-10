@@ -1,6 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { finalize, forkJoin, take, tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { finalize, take } from 'rxjs';
 import { HackerNewsApiService } from '../services/hacker-news-api.service';
+import { routingConstant } from '../_constants/routing.constants';
 import { State } from '../_enums/state.enum';
 import { Story } from '../_models/story.model';
 
@@ -22,6 +23,8 @@ export class HomeComponent implements OnInit {
     new: true,
     best: true,
   };
+
+  readonly routing = routingConstant.pages;
 
   constructor(private hackerNewsApiService: HackerNewsApiService) { }
 
