@@ -10,7 +10,6 @@ import { Story } from '../_models/story.model';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit {
-  // TODO: make interface
   pageType: any;
 
   private count: number = 20

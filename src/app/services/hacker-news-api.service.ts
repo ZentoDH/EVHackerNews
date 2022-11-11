@@ -32,7 +32,6 @@ export class HackerNewsApiService {
       )
     } else {
       if ((count + offset) > (this.idCache[type].length)) {
-        // TODO: notify user
         alert('End of the stories')
       }
       return this.getStoriesDetails(this.idCache[type], count, offset);
