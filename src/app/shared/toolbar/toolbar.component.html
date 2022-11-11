@@ -1,6 +1,6 @@
 <nav class="navigation">
-    <button mat-raised-button routerLink="/"><mat-icon>home</mat-icon></button>
-    <button mat-raised-button [routerLink]="'/' +routing.root + '/' + routing.top">Top</button>
-    <button mat-raised-button [routerLink]="'/' +routing.root + '/' + routing.new">New</button>
-    <button mat-raised-button [routerLink]="'/' +routing.root + '/' + routing.best">Best</button>
+    <button mat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" routerLink="/"><mat-icon>home</mat-icon></button>
+    <button mat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/' +routing.root + '/' + routing.top">Top</button>
+    <button mat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/' +routing.root + '/' + routing.new">New</button>
+    <button mat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/' +routing.root + '/' + routing.best">Best</button>
 </nav>

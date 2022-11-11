@@ -2,15 +2,16 @@
   <mat-drawer #drawer [mode]="'over'">
     <h1>Hacker news</h1>
     <mat-divider></mat-divider>
-    <button mat-flat-button routerLink="/">Home</button>
-    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">Top</button>
-    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">New</button>
-    <button mat-flat-button [routerLink]="routing.root + '/' + routing.top">Best</button>
+    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" routerLink="/">Home</button>
+    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.top">Top</button>
+    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.new">New</button>
+    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.best">Best</button>
   </mat-drawer>
+
 
   <div class="sidenav-bar">
     <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon color="primary">menu</mat-icon>
     </button>
   </div>
 
