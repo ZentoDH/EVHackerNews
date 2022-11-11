@@ -1,14 +1,16 @@
 <app-toolbar></app-toolbar>
-<h1>{{pageType}}</h1>
+<div class="page-wrapper">
+    <h1 [ngStyle]="{'visibility': pageType ? 'visible' : 'hidden'}" >{{pageType}} stories</h1>
 
-<div class="stories">
-    <!-- TODO: change to reusable component -->
-    <div class="story" *ngFor="let story of stories;let i = index" (click)="openLink(story.url)">
-        <span class="count">{{ i + 1 }}</span>
-        <p>{{ story.title }}</p>
-        <sub>{{ story.score }} points by {{ story.by }} on {{ story.time | date:'medium' }}</sub>
-    </div>
-    <div class="spinner-wrapper" [ngStyle]="{'visibility': isLoading ? 'visible' : 'hidden'}">
-        <mat-spinner [diameter]="30"></mat-spinner>
+    <div class="stories">
+        <!-- TODO: change to reusable component -->
+        <div class="story" *ngFor="let story of stories;let i = index" (click)="openLink(story.url)">
+            <span class="count">{{ i + 1 }}</span>
+            <p>{{ story.title }}</p>
+            <sub>{{ story.score }} points by {{ story.by }} on {{ story.time | date:'medium' }}</sub>
+        </div>
+        <div class="spinner-wrapper" [ngStyle]="{'visibility': isLoading ? 'visible' : 'hidden'}">
+            <mat-spinner [diameter]="30"></mat-spinner>
+        </div>
     </div>
 </div>

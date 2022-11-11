@@ -1,6 +1,5 @@
 // TODO: add theme variable and import it
-$primary: #15103a;
-$accent: #5541f0;
+@import '../../shared/variables.scss';
 
 .navigation {
     width: 100%;
@@ -12,7 +11,7 @@ $accent: #5541f0;
     button {
         margin: 20px;
         border-radius: 25px;
-        font-family: "Raleway", "Helvetica Neue", sans-serif;
+        font-family: $font-family-raleway;
         color: rgb(238, 238, 238);
         font-size: 1.5rem;
         font-weight: lighter;

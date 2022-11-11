@@ -1,5 +1,5 @@
-$primary: #15103a;
-$accent: #5541f0;
+@import '../shared/variables.scss';
+
 
 .title {
   text-align: center;
@@ -7,6 +7,7 @@ $accent: #5541f0;
   font-weight: lighter;
   font-size: 4em;
   color: $primary;
+  line-height: 50px;
 }
 .stories-wrapper {
   min-height: fit-content;
