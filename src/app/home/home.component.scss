@@ -11,7 +11,7 @@
 }
 .stories-wrapper {
   min-height: fit-content;
-  margin-bottom: 50px;
+  margin: 0 10px 50px 10px;
 
   h1 {
     text-align: center;
@@ -21,6 +21,7 @@
     box-shadow: rgb(186, 186, 186) 0px 1px 4px;
     border-radius: 30px;
     padding: 20px 5px;
+    margin-top: 20px;
     .stories {
       width: 100%;
       margin: auto;

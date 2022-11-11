@@ -2,10 +2,10 @@
   <mat-drawer #drawer [mode]="'over'">
     <h1>Hacker news</h1>
     <mat-divider></mat-divider>
-    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" routerLink="/">Home</button>
-    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.top">Top</button>
-    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.new">New</button>
-    <button mat-flat-button routerLinkActive="accent" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.best">Best</button>
+    <button mat-flat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" (click)="drawer.close()" routerLink="/">Home</button>
+    <button mat-flat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.top">Top</button>
+    <button mat-flat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.new">New</button>
+    <button mat-flat-button routerLinkActive="active-routing" [routerLinkActiveOptions]="{exact:true}" (click)="drawer.close()" [routerLink]="'/'+routing.root + '/' + routing.best">Best</button>
   </mat-drawer>
 
 
